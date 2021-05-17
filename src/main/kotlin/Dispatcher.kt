@@ -63,6 +63,51 @@ fun main (){
                 bot.sendMessage(ChatId.fromId(message.chat.id), text = "Prueba con otro")
             }
 
+            command("elige"){
+                val inlineKeyboardMarkup = InlineKeyboardMarkup.create(
+
+                    listOf(InlineKeyboardButton.CallbackData(text ="Boton 1 ", callbackData = "quiero aprobar")),
+                    listOf(InlineKeyboardButton.CallbackData(text = "Boton 2",callbackData = "dame dinerito"))
+
+                )
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = "Presiona un botón",
+                    replyMarkup = inlineKeyboardMarkup
+                )
+            }
+
+            callbackQuery("quiero aprobar") {
+                val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
+                bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
+            }
+
+            callbackQuery(
+                callbackData = "dame dinerito",
+                callbackAnswerText = "No puc mes",
+                callbackAnswerShowAlert = true
+            ) {
+                val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
+                bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
+            }
+
+
+            command("fotos") {
+                bot.sendMediaGroup(
+                    chatId = ChatId.fromId(message.chat.id),
+                    mediaGroup = MediaGroup.from(
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://st4.depositphotos.com/3258807/25375/i/1600/depositphotos_253756078-stock-photo-disgusting-drunk-man-grabbing-bottle.jpg"),
+                            caption = "Asi estaba"
+                        ),
+                        InputMediaPhoto(
+                            media = TelegramFile.ByUrl("https://previews.123rf.com/images/kolotype/kolotype1502/kolotype150200106/36622613-cierre-de-borracho-viejo-calvo-hombre-apoyado-en-la-mesa-de-madera-con-vodka-con-un-vaso-peque%C3%B1o.jpg"),
+                            caption = "de fiesta"
+                        )
+                    ),
+                    replyToMessageId = message.messageId
+                )
+            }
 
 
 

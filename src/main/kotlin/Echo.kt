@@ -8,14 +8,10 @@ import com.github.kotlintelegrambot.network.fold
 
 fun main() {
 
-
-    /**Instanciamos un objeto bot*/
     val bot = bot {
 
-        /**Introducimos el token del bot*/
         token = "1891547109:AAGy7E2lFULRvOeBBeOeXUFyiaJr7sVTI6o"
 
-        /**El dispatch nos permite enviar información a Telegram para manejar el bot*/
         dispatch {
 
             text {
@@ -25,8 +21,6 @@ fun main() {
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = text)
             }
 
-
-            /**Creamos un comando que devolvera el mensaje que indiquemos*/
             command("start") {
 
                 val result = bot.sendMessage(chatId = ChatId.fromId(update.message!!.chat.id), text = "Bot iniciado")

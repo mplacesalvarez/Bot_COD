@@ -47,6 +47,28 @@ fun main (){
 
 
 
+            message(Filter.Reply or Filter.Forward){
+                bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "No me respondas")
+
+
+            }
+            message(Filter.Reply or Filter.Forward){
+                bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Aprende a leer")
+
+
+            }
+
+
+            message (Filter.Sticker){
+                bot.sendMessage(ChatId.fromId(message.chat.id), text = "Prueba con otro")
+            }
+
+
+
+
+
+
+
         }
 
 

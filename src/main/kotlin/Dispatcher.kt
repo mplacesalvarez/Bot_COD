@@ -41,12 +41,6 @@ fun main (){
                 )
             }
 
-
-
-
-
-
-
             message(Filter.Reply or Filter.Forward){
                 bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "No me respondas")
 
@@ -89,6 +83,32 @@ fun main (){
             ) {
                 val chatId = callbackQuery.message?.chat?.id ?: return@callbackQuery
                 bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
+            }
+
+
+            command("slot") {
+                bot.sendDice(ChatId.fromId(message.chat.id), DiceEmoji.SlotMachine)
+            }
+
+            telegramError {
+                println(error.getErrorMessage())
+            }
+
+
+
+
+
+
+
+            command("video"){
+                val markdownV2Text = """
+                    [inline URL](https://www.youtube.com/watch?v=Hyw6kKMjp5A)
+                """.trimIndent()
+                bot.sendMessage(
+                    chatId = ChatId.fromId(message.chat.id),
+                    text = markdownV2Text,
+                    parseMode = ParseMode.MARKDOWN_V2
+                )
             }
 
 

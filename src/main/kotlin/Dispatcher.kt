@@ -25,6 +25,27 @@ fun main (){
                 result.fold ({ },{ })
 
             }
+            command("nose") {
+                val result =
+                    bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "nose que decir")
+                result.fold({
+                    // do something here with the response
+                }, {
+                    // do something with the error
+                })
+            }
+
+            command("adios"){
+                val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Hasta pronto")
+                result.fold ({  },{ }
+                )
+            }
+
+
+
+
+
+
 
         }
 

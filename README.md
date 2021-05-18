@@ -19,12 +19,24 @@
 
 ## Echo <a name="id2"></a>
 Reproduce cualquier mensaje que le hayamos indicado despues de introducir un comando
+` 
+
+                val result = bot.sendMessage(chatId = ChatId.fromId(update.message!!.chat.id), text = "Bot iniciado")
+
+                result.fold(
+                    {
+
+                    },
+                    {
+                        // do something with the error
+                    }
+                )
+            `
 
 ## Dispatcher <a name="id3"></a>
 Aqui nos encontramos varios tipos de comandos como /hola , /nose y /adios, que nos envian un mensaje, /slot, que envia un emoji de una maquina de slot, /video que nos envia un video de youtube o /fotos que envia dos fotos, cada una con un texto.<br>
 ![texto cualquiera por si no carga la imagen](https://github.com/mplacesalvarez/Bot_COD/blob/master/Capturas%20de%20pantalla/IMG_3394%204.16.10.PNG)
 ![texto cualquiera por si no carga la imagen](https://github.com/mplacesalvarez/Bot_COD/blob/master/Capturas%20de%20pantalla/IMG_3395%204.16.10.PNG)
-![texto cualquiera por si no carga la imagen](https://github.com/mplacesalvarez/Bot_COD/blob/master/Capturas%20de%20pantalla/IMG_3396%204.16.10.PNG)
 <br>
 
 ## Polls <a name="id4"></a>

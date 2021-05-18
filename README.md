@@ -25,7 +25,7 @@ Aqui nos encontramos varios tipos de comandos como /hola , /nose y /adios, que n
 
 ##Polls
 Las polls son encuestas que el bot puede mandarnos y estas pueden ser QUIZ , que son preguntas con una respuesta correcta, y REGULAR , con varias opciones de las que se considera la buena la que tenga mayor número de votos. De este tipo serian los comandos /mates  y /encuesta.
-
+![texto cualquiera por si no carga la imagen](https://github.com/mplacesalvarez/Bot_COD/blob/master/Capturas%20de%20pantalla/IMG_3396.PNG)
 
 
 Creado por:

@@ -130,12 +130,7 @@ fun main (){
             }
 
 
-
-
-
-
         }
-
 
     }
     bot.startPolling()

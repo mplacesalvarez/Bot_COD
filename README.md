@@ -3,8 +3,8 @@
 ## Indice 
 - [Comandos](#id1)
 - [Echo](#id2)
-- [Polls](#id3)
-- [Dispacher](#id4)
+- [Dispacher](#id3)
+- [Polls](#id4)
 
 ## Comandos <a name="id1"></a>
 /hola - saludar <br>

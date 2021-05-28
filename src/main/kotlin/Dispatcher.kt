@@ -15,16 +15,19 @@ import com.github.kotlintelegrambot.network.fold
 fun main (){
 
     val bot = bot {
-
+        /**Introducimos el token del bot*/
         token = "1891547109:AAGy7E2lFULRvOeBBeOeXUFyiaJr7sVTI6o"
 
         dispatch {
+            /**Creamos un comando que devolvera un mensaje que indiquemos*/
+
 
             command("hola"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Saludos :)")
                 result.fold ({ },{ })
 
             }
+            /**Creamos un comando que devolvera un mensaje que indiquemos*/
             command("nose") {
                 val result =
                     bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text = "nose que decir")
@@ -34,7 +37,7 @@ fun main (){
                     // do something with the error
                 })
             }
-
+            /**Creamos un comando que devolvera un mensaje que indiquemos*/
             command("adios"){
                 val result=bot.sendMessage(chatId = ChatId.fromId(message.chat.id), text= "Hasta pronto")
                 result.fold ({  },{ }
@@ -52,11 +55,11 @@ fun main (){
 
             }
 
-
+            /**Nos manda un mensaje cuando le enviemos un sticker*/
             message (Filter.Sticker){
                 bot.sendMessage(ChatId.fromId(message.chat.id), text = "Prueba con otro")
             }
-
+            /**Este comando nos da a elegir entre dos botones y nos devolvera una respuesta diferente para cada uno */
             command("elige"){
                 val inlineKeyboardMarkup = InlineKeyboardMarkup.create(
 
@@ -85,7 +88,7 @@ fun main (){
                 bot.sendMessage(ChatId.fromId(chatId), callbackQuery.data)
             }
 
-
+            /**Comando que nos envia una maquina de slot*/
             command("slot") {
                 bot.sendDice(ChatId.fromId(message.chat.id), DiceEmoji.SlotMachine)
             }
@@ -99,7 +102,7 @@ fun main (){
 
 
 
-
+            /**Comando que nos envia un video de la url que le indiquemos*/
             command("video"){
                 val markdownV2Text = """
                     [inline URL](https://www.youtube.com/watch?v=Hyw6kKMjp5A)
@@ -111,7 +114,7 @@ fun main (){
                 )
             }
 
-
+            /**Comando que nos envia fotos de las url que le indiquemos*/
             command("fotos") {
                 bot.sendMediaGroup(
                     chatId = ChatId.fromId(message.chat.id),

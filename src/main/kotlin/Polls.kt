@@ -8,7 +8,7 @@ import com.github.kotlintelegrambot.entities.polls.PollType
 
 fun main() {
     val bot = bot {
-
+        /**Introducimos el token del bot*/
         token = "1891547109:AAGy7E2lFULRvOeBBeOeXUFyiaJr7sVTI6o"
 
         dispatch {
@@ -16,7 +16,7 @@ fun main() {
             pollAnswer {
                 println("${pollAnswer.user.username} has selected the option ${pollAnswer.optionIds.lastOrNull()} in the poll ${pollAnswer.pollId}")
             }
-
+            /**Nos envia una encuesta con varias respuestas de las cuales solo una es correcta*/
             command("mates") {
 
                 bot.sendPoll(
@@ -29,7 +29,7 @@ fun main() {
                 )
             }
 
-
+            /**Nos envia una encuesta con varias respuestas de las cuales se tomará la respuesta valida la que tenga mas votos*/
             command("encuesta") {
                 bot.sendPoll(
                     chatId = ChatId.fromId(message.chat.id),
